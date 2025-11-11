@@ -1,0 +1,185 @@
+/* --- 1. Basic Reset and Root Styling --- */
+
+/* Global Box Sizing Reset for predictable layouts */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #f8f9fa; /* Light Gray */
+    --text-color: #212529; /* Dark Gray */
+    --bg-color: #ffffff; /* White */
+    --sidebar-width: 250px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* --- 2. App Layout Container (Flexbox) --- */
+
+#app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    padding: 20px;
+}
+
+/* NEW: Style for the top Search Bar */
+.top-search-bar {
+    padding-bottom: 20px;
+    margin-bottom: 10px; /* Space between search and content */
+    border-bottom: 1px solid #ddd;
+}
+
+/* NEW: Wrapper for the main content and sidebar */
+.content-and-sidebar-wrapper {
+    display: flex; /* This handles the side-by-side layout now */
+    flex-grow: 1;
+}
+
+/* Sidebar Styling */
+#sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--text-color);
+    color: var(--secondary-color);
+    padding: 20px;
+    flex-shrink: 0; /* Prevents sidebar from shrinking */
+}
+
+#sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+/* Navigation Links */
+.nav-section {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+}
+
+/* NavLink from React Router */
+.nav-section li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 1.1em;
+    border-left: 5px solid transparent;
+}
+
+.nav-section li a:hover {
+    background-color: #3e444a; /* Darker background on hover */
+}
+
+/* .active class is applied by NavLink component */
+.nav-section li a.active {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border-left: 5px solid #0056b3; /* Darker primary color border */
+    font-weight: bold;
+}
+
+/* --- 3. Main Content Styling (Including the Layout Fix) --- */
+
+.main-content { /* We changed the id to a class in App.jsx */
+    flex-grow: 1; 
+    padding: 0 30px;
+    overflow-y: auto;
+    
+    /* FIX FOR PREVIOUS LAYOUT ISSUE: Ensures the content area does not collapse */
+    min-width: 500px;
+}
+
+.main-content h1 {
+    color: var(--primary-color);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.level-section {
+    border-left: 3px solid #ccc;
+    padding-left: 15px;
+    margin-top: 20px;
+}
+
+.level-section p {
+    line-height: 1.6;
+}
+
+/* --- 4. Search Bar Styling (To be used when you implement the search component) --- */
+
+.search-container {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* --- 5. Mobile Responsiveness (Media Query) --- */
+@media (max-width: 768px) {
+    
+    #app-container {
+        flex-direction: column;
+        max-width: 100%; 
+        box-shadow: none;
+    }
+
+    #sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        display: none; 
+    }
+    
+    #sidebar h2 {
+        display: none;
+    }
+
+    .nav-section li a {
+        padding: 10px 15px;
+        font-size: 1em;
+        border-left: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .main-content {
+        padding: 15px; 
+    }
+    
+    .search-container {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+    
+    /* Mobile Toggle and Sidebar Toggle Class */
+    .menu-toggle {
+        display: block; 
+    }
+    
+    .show-sidebar {
+        display: block !important;
+    }
+}
