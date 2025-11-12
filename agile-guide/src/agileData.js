@@ -292,7 +292,7 @@ export const methodologiesData = {
         }
     },
     "Glossary": { 
-        title: "Agile Glossary", 
+        title: "AgileGlossary", 
         description: "Essential terms and definitions." 
     },
     // -------------------------------------------------------------------

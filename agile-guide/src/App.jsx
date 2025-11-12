@@ -10,6 +10,7 @@ import LeSS from './components/LeSS';
 import XP from './components/ExtremeProgramming';
 import SAFe from './components/SAFe';
 import FlightLevels from './components/FlightLevels';
+import AgileGlossary from './components/AgileGlossary';
 import './App.css';
 
 // A placeholder component for your methodology pages
@@ -99,7 +100,7 @@ function App() {
           {/* Fallback for other methodologies until their components are built */}
           {/* This uses a helper function to find names not explicitly routed above */}
           {methodologyNames
-            .filter(name => !["Introduction", "Scrum", "Kanban", "XP", "LeSS", "SAFe", "FlightLevels", "Lean"].includes(name))
+            .filter(name => !["Introduction", "AgileGlossary", "Scrum", "Kanban", "XP", "LeSS", "SAFe", "FlightLevels", "Lean"].includes(name))
             .map((name) => (
               <Route
                 key={name}
