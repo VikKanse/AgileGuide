@@ -88,6 +88,7 @@ function App() {
           
           {/* Dedicated Routes */}
           <Route path="/introduction" element={<Introduction />} /> 
+          <Route path="/glossary" element={<AgileGlossary />} />
           <Route path="/scrum" element={<Scrum />} /> 
           <Route path="/kanban" element={<Kanban />} />
           <Route path="/xp" element={<XP />} />

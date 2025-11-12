@@ -291,6 +291,10 @@ export const methodologiesData = {
             }
         }
     },
+    "Glossary": { 
+        title: "Agile Glossary", 
+        description: "Essential terms and definitions." 
+    },
     // -------------------------------------------------------------------
     // LEAN
     // -------------------------------------------------------------------
